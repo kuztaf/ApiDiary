@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "date": "2023-10-01",
+    "weather": "rainy",
+    "visibility": "poor",
+    "comment": "This is my first diary entry."
+  },
+  {
+    "id": 2,
+    "date": "2023-10-02",
+    "weather": "sunny",
+    "visibility": "good",
+    "comment": "This is my second diary entry."
+  },
+  {
+    "id": 3,
+    "date": "2023-10-03",
+    "weather": "cloudy",
+    "visibility": "average",
+    "comment": "This is my third diary entry."
+  },
+  {
+    "id": 4,
+    "date": "2023-10-04",
+    "weather": "windy",
+    "visibility": "poor",
+    "comment": "This is my fourth diary entry."
+  },
+  {
+    "id": 5,
+    "date": "2023-10-05",
+    "weather": "foggy",
+    "visibility": "poor",
+    "comment": "This is my fifth diary entry."
+  }
+]
