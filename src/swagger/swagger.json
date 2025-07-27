@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Diary API",
+    "version": "1.0.0",
+    "description": "API for managing diary entries"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/api/diaries": {
+      "get": {
+        "summary": "Get all diary entries",
+        "tags": ["Diaries"],
+        "responses": {
+          "200": {
+            "description": "List of diary entries"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new diary entry",
+        "tags": ["Diaries"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDiaryEntry"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Diary entry created"
+          }
+        }
+      }
+    },
+    "/api/diaries/{id}": {
+      "get": {
+        "summary": "Get a diary entry by id",
+        "tags": ["Diaries"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Diary entry found" },
+          "404": { "description": "Diary entry not found" }
+        }
+      },
+      "put": {
+        "summary": "Update a diary entry by id",
+        "tags": ["Diaries"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NewDiaryEntry" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Diary entry updated" },
+          "404": { "description": "Diary entry not found" }
+        }
+      },
+      "delete": {
+        "summary": "Delete a diary entry by id",
+        "tags": ["Diaries"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Diary entry deleted" },
+          "404": { "description": "Diary entry not found" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NewDiaryEntry": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string" },
+          "weather": { "type": "string" },
+          "visibility": { "type": "string" },
+          "comment": { "type": "string" }
+        },
+        "required": ["date", "weather", "visibility", "comment"]
+      }
+    }
+  }
+}
