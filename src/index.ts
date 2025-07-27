@@ -1,5 +1,5 @@
 import express from 'express'
-import diariesRouter from './routes/diaries'
+import { DiaryRoute } from './routes/diaryRoute'
 // swagger setup
 import { setupSwagger } from './swagger/swaggerSetup'
 
@@ -10,7 +10,11 @@ const PORT = 3000
 app.use(express.json()) // Middleware to parse JSON bodies
 
 // Set up the routes
-app.use('/api/diaries', diariesRouter)
+const diaryRoute = new DiaryRoute()
+
+// setup the routes
+app.use(diaryRoute.path, diaryRoute.router)
+
 app.get('/ping', (_req, res) => {
   console.log('Ping received at', new Date().toLocaleDateString())
   res.send('PongX')
