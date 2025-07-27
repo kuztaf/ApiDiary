@@ -1,4 +1,5 @@
 import { NewDiaryEntry, WeatherEnum, VisibilityEnum } from '../types/diaryTypes'
+import { isDate, isString } from './baseUtils'
 
 const parseComment = (commentFromRequest: any): string => {
   if (
@@ -33,14 +34,6 @@ const parseVisibility = (visibilityFromRequest: any): VisibilityEnum => {
     throw new Error('Invalid visibility')
   }
   return visibilityFromRequest as VisibilityEnum
-}
-
-const isString = (text: string): boolean => {
-  return typeof text === 'string'
-}
-
-const isDate = (date: string): boolean => {
-  return Boolean(Date.parse(date))
 }
 
 const isWeather = (weather: string): boolean => {

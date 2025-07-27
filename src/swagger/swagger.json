@@ -42,6 +42,89 @@
         }
       }
     },
+    "/api/users": {
+      "get": {
+        "summary": "Get all user entries",
+        "tags": ["Users"],
+        "responses": {
+          "200": { "description": "List of user entries" }
+        }
+      },
+      "post": {
+        "summary": "Create a new user entry",
+        "tags": ["Users"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NewUserEntry" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User entry created" },
+          "400": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "summary": "Get a user entry by id",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "User entry found" },
+          "404": { "description": "User entry not found" }
+        }
+      },
+      "put": {
+        "summary": "Update a user entry by id",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NewUserEntry" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "User entry updated" },
+          "404": { "description": "User entry not found" }
+        }
+      },
+      "delete": {
+        "summary": "Delete a user entry by id",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "User entry deleted" },
+          "404": { "description": "User entry not found" }
+        }
+      }
+    },
     "/api/diaries/{id}": {
       "get": {
         "summary": "Get a diary entry by id",
@@ -112,6 +195,15 @@
           "comment": { "type": "string" }
         },
         "required": ["date", "weather", "visibility", "comment"]
+      },
+      "NewUserEntry": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "password": { "type": "string" }
+        },
+        "required": ["name", "email", "password"]
       }
     }
   }

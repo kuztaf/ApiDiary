@@ -14,5 +14,11 @@ export enum VisibilityEnum {
   Poor = 'poor'
 }
 
-export type NonSensistiveDiaryEntry = Omit<DiaryEntryModel, 'comment'>
-export type NewDiaryEntry = Omit<DiaryEntryModel, 'id'>
+export type NonSensitiveDiaryEntry = Omit<
+  DiaryEntryModel,
+  'comment' | 'createdAt' | 'updatedAt'
+>
+export type NewDiaryEntry = Omit<
+  DiaryEntryModel,
+  'id' | 'createdAt' | 'updatedAt'
+>

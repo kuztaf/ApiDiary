@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Ana",
+    "lastName": "García",
+    "age": 28,
+    "username": "anagarcia",
+    "email": "ana.garcia@email.com",
+    "role": "USER"
+  },
+  {
+    "name": "Luis",
+    "lastName": "Martínez",
+    "age": 35,
+    "username": "luismartinez",
+    "email": "luis.martinez@email.com",
+    "role": "ADMIN"
+  },
+  {
+    "name": "Sofia",
+    "lastName": "Fernández",
+    "age": 22,
+    "username": "sofiafernandez",
+    "email": "sofia.fernandez@email.com",
+    "role": "USER"
+  }
+]

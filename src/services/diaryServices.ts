@@ -1,19 +1,19 @@
 import diaryData from '../data/diaries.json'
-import { NonSensistiveDiaryEntry, NewDiaryEntry } from '../types/diaryTypes'
+import { NonSensitiveDiaryEntry, NewDiaryEntry } from '../types/diaryTypes'
 import { DiaryEntryModel } from '../models/diaryEntryModel'
 
 const diaries: DiaryEntryModel[] = diaryData as DiaryEntryModel[]
 
 export const getEntries = (): DiaryEntryModel[] => diaries
 
-export const findById = (id: number): NonSensistiveDiaryEntry | undefined => {
+export const findById = (id: number): NonSensitiveDiaryEntry | undefined => {
   const entry = diaries.find((diary) => diary.id === id)
   if (entry == null) return undefined
   const { comment, ...restOfEntry } = entry
   return restOfEntry
 }
 
-export const getEntriesWithoutSensitiveInfo = (): NonSensistiveDiaryEntry[] => {
+export const getEntriesWithoutSensitiveInfo = (): NonSensitiveDiaryEntry[] => {
   return diaries.map(({ id, date, weather, visibility }) => {
     return {
       id,
