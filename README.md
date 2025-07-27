@@ -15,18 +15,31 @@ Este proyecto es una API RESTful desarrollada con Node.js, Express y TypeScript 
 ```
 api_express_ts/
 ├── src/
-│   ├── data/           # Archivos de datos (diaries.json)
-│   ├── routes/         # Definición de rutas Express
-│   ├── services/       # Lógica de negocio y servicios
-│   ├── types/          # Tipos TypeScript
-│   ├── utils/          # Funciones utilitarias
-│   ├── diaries.ts      # Controlador principal de diarios
-│   └── index.ts        # Punto de entrada de la app
-├── build/              # Archivos compilados
-├── package.json        # Dependencias y scripts
-├── tsconfig.json       # Configuración TypeScript
-├── .gitignore          # Exclusiones de Git
-└── README.md           # Documentación
+│   ├── controllers/         # (Vacío)
+│   ├── data/
+│   │   └── diaries.json
+│   ├── models/
+│   │   ├── baseModel.ts
+│   │   └── diaryEntryModel.ts
+│   ├── routes/
+│   │   └── diaries.ts
+│   ├── services/
+│   │   └── diaryServices.ts
+│   ├── swagger/
+│   │   ├── swagger.json
+│   │   └── swaggerSetup.ts
+│   ├── types/
+│   │   └── diaryTypes.ts
+│   ├── utils/
+│   │   └── diaryUtils.ts
+│   └── index.ts
+├── build/
+├── node_modules/
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+├── .gitignore
+└── README.md
 ```
 
 ## Instalación
