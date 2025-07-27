@@ -1,3 +1,5 @@
+import { DiaryEntryModel } from '../models/diaryEntryModel'
+
 export enum WeatherEnum {
   Sunny = 'sunny',
   Rainy = 'rainy',
@@ -12,14 +14,5 @@ export enum VisibilityEnum {
   Poor = 'poor'
 }
 
-export interface DiaryEntry {
-  id: number
-  date: string
-  weather: WeatherEnum
-  visibility: VisibilityEnum
-  comment: string
-}
-
-export type NonSensistiveDiaryEntry = Omit<DiaryEntry, 'comment'>
-
-export type NewDiaryEntry = Omit<DiaryEntry, 'id'>
+export type NonSensistiveDiaryEntry = Omit<DiaryEntryModel, 'comment'>
+export type NewDiaryEntry = Omit<DiaryEntryModel, 'id'>
